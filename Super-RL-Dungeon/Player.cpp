@@ -19,7 +19,20 @@ Player::Player(Point p) :
 
 void Player::update()
 {
+	handle_input();
+}
 
+void Player::handle_input()
+{
+	TCOD_key_t key;
+	TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
+	switch (key.vk)
+	{
+	case TCODK_UP: m_position.y--; break;
+	case TCODK_DOWN: m_position.y++; break;
+	case TCODK_LEFT: m_position.x--; break;
+	case TCODK_RIGHT: m_position.x++; break;	
+	}
 }
 
 void Player::render()

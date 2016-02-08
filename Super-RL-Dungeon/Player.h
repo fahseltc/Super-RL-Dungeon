@@ -10,6 +10,7 @@ public:
 
 	void update();
 	void render();
+	void handle_input();
 
 private:
 };

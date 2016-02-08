@@ -12,12 +12,11 @@ int main()
 
 	while (!TCODConsole::isWindowClosed()) 
 	{		
-		TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, NULL, NULL);
+		//TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, NULL, NULL);
 		TCODConsole::root->clear();
-
+		player.update();
 		map.render();
-		player.render();
-		TCODConsole::root->putChar(40, 45, '@');
+		player.render();		
 
 		TCODConsole::flush();
 	}
