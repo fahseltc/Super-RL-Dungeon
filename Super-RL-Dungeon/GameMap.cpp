@@ -24,8 +24,7 @@ GameMap::GameMap(int w, int h) :
         tiles[i].image = '#';
         // bottom wall
         tiles[i + (width *(height-1))].image = '#';
-    }
-   
+    }   
 }
 
 GameMap::~GameMap()
