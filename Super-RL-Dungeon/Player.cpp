@@ -23,6 +23,7 @@ void Player::handle_input()
 
     int future_x = m_position.x;
     int future_y = m_position.y;
+
 	switch (key.vk)
 	{
 	case TCODK_UP: future_y--; break;
