@@ -42,4 +42,5 @@ void Player::handle_input()
 void Player::render()
 {
 	TCODConsole::root->putChar(m_position.x, m_position.y, m_icon);
+    TCODConsole::root->setCharForeground(m_position.x, m_position.y, TCODColor::yellow);
 }

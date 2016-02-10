@@ -45,6 +45,7 @@ void GameMap::render()
         for (int y = 0; y < height; y++)
         {
             TCODConsole::root->setChar(x, y, tiles[x + y * width].image);
+            TCODConsole::root->setCharBackground(x, y, TCODColor::grey);
         }
     }
 }
