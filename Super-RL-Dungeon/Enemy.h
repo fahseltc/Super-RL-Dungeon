@@ -5,7 +5,7 @@
 class Enemy : public Entity
 {
 public:
-	Enemy(Point p, );
+	Enemy(Point p, GameMap *map_in);
 	~Enemy();
 
 	void update();
