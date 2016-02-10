@@ -3,18 +3,12 @@
 #include "Entity.h"
 #include "libtcod.hpp"
 
-Player::Player() :
-	Entity()
-{
-	// default constructor
-	set_icon('@');
-}
-
-Player::Player(Point p) :
+Player::Player(Point p, GameMap *map_in) :
 	Entity(p)
 {
 	// constructor with position
 	set_icon('@');
+    map = map_in;
 }
 
 void Player::update()
@@ -26,13 +20,23 @@ void Player::handle_input()
 {
 	TCOD_key_t key;
 	TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
+
+    int future_x = m_position.x;
+    int future_y = m_position.y;
 	switch (key.vk)
 	{
-	case TCODK_UP: m_position.y--; break;
-	case TCODK_DOWN: m_position.y++; break;
-	case TCODK_LEFT: m_position.x--; break;
-	case TCODK_RIGHT: m_position.x++; break;	
+	case TCODK_UP: future_y--; break;
+	case TCODK_DOWN: future_y++; break;
+	case TCODK_LEFT: future_x--; break;
+	case TCODK_RIGHT: future_x++; break;
 	}
+
+    // check if we can move to future x,y
+    if (map->is_passable(future_x, future_y))
+    {
+        m_position.x = future_x;
+        m_position.y = future_y;
+    }
 }
 
 void Player::render()

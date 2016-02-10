@@ -19,6 +19,7 @@ public:
 	int height;
 
 	void render();
+    bool is_passable(int x, int y);
 
 protected:
 	GameTile *tiles;

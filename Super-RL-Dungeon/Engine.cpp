@@ -3,9 +3,10 @@
 Engine::Engine()
 {
     TCODConsole::initRoot(80, 50, "SUPER-RL-DUNGEON", false);
-    player = new Player(Point(2, 2));
-    entities.push(player);
+
     map = new GameMap(80, 50);
+    player = new Player(Point(2, 2), map);
+    entities.push(player);    
 }
 
 Engine::~Engine()

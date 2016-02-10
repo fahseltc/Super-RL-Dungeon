@@ -12,18 +12,24 @@ GameMap::GameMap(int w, int h) :
     {
         // left wall
         tiles[i * width].image = '#';
+        tiles[i * width].passable = false;
 
         // right wall
         if (i != 0) 
-            tiles[(i * width) - 1].image = '#';       
+        {
+            tiles[(i * width) - 1].image = '#';  
+            tiles[(i * width) - 1].passable = false;
+        }
     }
 
     for (int i = 0; i < width; i++)
     {
         // top wall
         tiles[i].image = '#';
+        tiles[i].passable = false;
         // bottom wall
-        tiles[i + (width *(height-1))].image = '#';
+        tiles[i + (width *(height - 1))].image = '#';
+        tiles[i + (width *(height - 1))].passable = false;
     }   
 }
 
@@ -41,4 +47,9 @@ void GameMap::render()
             TCODConsole::root->setChar(x, y, tiles[x + y * width].image);
         }
     }
+}
+
+bool GameMap::is_passable(int x, int y)
+{
+    return tiles[x + y*width].passable;
 }
