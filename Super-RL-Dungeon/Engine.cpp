@@ -1,6 +1,7 @@
 #include "Engine.h"
 
-Engine::Engine()
+Engine::Engine() :
+	scene(Scene(80,50))
 {
     TCODConsole::initRoot(80, 50, "SUPER-RL-DUNGEON", false);
 

@@ -4,6 +4,8 @@
 #include "GameMap.h"
 #include "Player.h"
 
+#include "Scene.h"
+
 class Engine
 {
 public:
@@ -14,6 +16,9 @@ public:
     void render();
 
 private:
+
+	Scene scene;
+
     TCODList<Entity *> entities;
     Player *player;
     GameMap *map;
