@@ -1,6 +1,5 @@
 #include "libtcod.hpp"
 #include "GameMap.h"
-#include <vector>
 
 GameMap::GameMap(int w, int h) : 
     width(w), height(h)

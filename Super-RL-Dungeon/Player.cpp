@@ -1,6 +1,4 @@
 #include "Player.h"
-#include "Point.h"
-#include "Entity.h"
 #include "libtcod.hpp"
 
 Player::Player(Point p, GameMap *map_in) :

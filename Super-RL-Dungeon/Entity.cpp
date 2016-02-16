@@ -1,5 +1,4 @@
 #include "Entity.h"
-#include "Point.h"
 
 Entity::Entity()
 {

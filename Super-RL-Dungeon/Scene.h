@@ -2,7 +2,6 @@
 #include "Entity.h"
 #include "GameMap.h"
 #include "Player.h"
-
 #include <vector>
 
 class Scene
