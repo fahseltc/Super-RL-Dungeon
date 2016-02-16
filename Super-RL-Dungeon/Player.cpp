@@ -41,5 +41,8 @@ void Player::HandleInput()
 void Player::Render()
 {
 	TCODConsole::root->putChar(position_.x, position_.y, icon_);
-    TCODConsole::root->setCharForeground(position_.x, position_.y, TCODColor::yellow);
+    TCODConsole::root->setCharForeground(
+		position_.x,
+		position_.y,
+		TCODColor::yellow);
 }

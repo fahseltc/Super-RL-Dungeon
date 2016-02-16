@@ -53,7 +53,10 @@ void GameMap::Render()
     }
 }
 
-bool GameMap::is_passable(int x, int y) { return tiles_[x + y*width_].passable; }
+bool GameMap::is_passable(int x, int y) 
+{ 
+	return tiles_[x + y*width_].passable; 
+}
 
 void GameMap::set_noise()
 {

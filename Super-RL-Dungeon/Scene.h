@@ -4,9 +4,10 @@
 #include "player.h"
 #include <vector>
 
-// This class holds entities and the game map, and acts as a bridge between the two of them.
-// This allows us to have a broader look at where the entities are, and gives them a single place
-// to look for collisions and positions of other entities.
+// This class holds entities and the game map, and acts as a bridge between the 
+// two of them. This allows us to have a broader look at where the entities 
+// are, and gives them a single place to look for collisions and positions of 
+// other entities.
 
 class Scene
 {
@@ -39,7 +40,7 @@ private:
 	// the player entity
 	Player *player_;
 
-	// maps the entity list to their positions so that we can access entities by querying a
-	// coordinate
+	// maps the entity list to their positions so that we can access entities 
+	// by querying a coordinate
 	std::vector< std::vector<Entity*> > position_entity_map_;
 };

@@ -6,8 +6,10 @@ Scene::Scene(int w, int h)
 	player_ = new Player(Point(2, 2), map_); // get rid of this map
 	entities_.push(player_);
 
-	// need data structure that stores the position and pointer of each entity on the map
-	std::vector< std::vector<Entity> > position_entity_map(w, std::vector<Entity>(h));
+	// need data structure that stores the position and pointer of each entity
+	// on the map
+	std::vector< std::vector<Entity> > 
+		position_entity_map(w, std::vector<Entity>(h));
 	position_entity_map[player_->position_.x][player_->position_.y] = *player_;
 }
 
@@ -22,7 +24,8 @@ void Scene::Update()
 	for (Entity *e : entities_)
 	{
 		// need to update position_entity_map in here.
-		// Maybe find the entity, then update it, then afterwards update the map.
+		// Maybe find the entity, then update it, then afterwards update the 
+		// map.
 		e->Update();
 	}
 }
