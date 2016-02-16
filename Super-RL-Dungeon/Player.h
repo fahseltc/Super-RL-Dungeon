@@ -7,7 +7,7 @@ class Player : public Entity
 {
 public:
 	Player(Point p, GameMap *map_in);
-    GameMap *map;
+    GameMap *map_;
 
 	void update();
 	void render();

@@ -3,8 +3,8 @@
 class Entity
 {
 public:
-	Point m_position;
-	char m_icon;
+	Point position_;
+	char icon_;
 	
 	Entity();
 	Entity(Point);

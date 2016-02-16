@@ -2,12 +2,12 @@
 
 Entity::Entity()
 {
-	m_position = Point();
+	position_ = Point();
 }
 
 Entity::Entity(Point p)
 {
-	m_position = p;
+	position_ = p;
 }
 
 void Entity::update() {};
@@ -15,5 +15,5 @@ void Entity::render() {};
 
 void Entity::set_icon(char c)
 {
-	m_icon = c;
+	icon_ = c;
 }

@@ -6,7 +6,7 @@ Player::Player(Point p, GameMap *map_in) :
 {
 	// constructor with position
 	set_icon('@');
-    map = map_in;
+    map_ = map_in;
 }
 
 void Player::update()
@@ -19,8 +19,8 @@ void Player::handle_input()
 	TCOD_key_t key;
 	TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
 
-    int future_x = m_position.x;
-    int future_y = m_position.y;
+    int future_x = position_.x;
+    int future_y = position_.y;
 
 	switch (key.vk)
 	{
@@ -31,15 +31,15 @@ void Player::handle_input()
 	}
 
     // check if we can move to future x,y
-    if (map->is_passable(future_x, future_y))
+    if (map_->is_passable(future_x, future_y))
     {
-        m_position.x = future_x;
-        m_position.y = future_y;
+        position_.x = future_x;
+        position_.y = future_y;
     }
 }
 
 void Player::render()
 {
-	TCODConsole::root->putChar(m_position.x, m_position.y, m_icon);
-    TCODConsole::root->setCharForeground(m_position.x, m_position.y, TCODColor::yellow);
+	TCODConsole::root->putChar(position_.x, position_.y, icon_);
+    TCODConsole::root->setCharForeground(position_.x, position_.y, TCODColor::yellow);
 }

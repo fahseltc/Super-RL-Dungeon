@@ -18,8 +18,8 @@ public:
 	Entity* get_entity(int x, int y);
 
 private:
-	TCODList<Entity *> entities;
-	GameMap *map;
-	Player *player;
-	std::vector< std::vector<Entity*> > position_entity_map;
+	TCODList<Entity *> entities_;
+	GameMap *map_;
+	Player *player_;
+	std::vector< std::vector<Entity*> > position_entity_map_;
 };

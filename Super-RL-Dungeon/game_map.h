@@ -22,14 +22,14 @@ public:
 	GameMap(int, int);
 	~GameMap();
 
-	int width;
-	int height;
+	int width_;
+	int height_;
 
 	void render();
     bool is_passable(int, int);
 
 protected:
-	GameTile *tiles;
+	GameTile *tiles_;
 
 private:
 	void set_noise();

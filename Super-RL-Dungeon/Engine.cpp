@@ -4,24 +4,24 @@ const int GLOBAL_WIDTH = 200;
 const int GLOBAL_HEIGHT = 100;
 
 Engine::Engine() :
-	scene(Scene(GLOBAL_WIDTH, GLOBAL_HEIGHT))
+	scene_(Scene(GLOBAL_WIDTH, GLOBAL_HEIGHT))
 {
     TCODConsole::initRoot(GLOBAL_WIDTH, GLOBAL_HEIGHT, "SUPER-RL-DUNGEON", false);
 
-    map = new GameMap(GLOBAL_WIDTH, GLOBAL_HEIGHT);
-    player = new Player(Point(2, 2), map);
-    entities.push(player);    
+    map_ = new GameMap(GLOBAL_WIDTH, GLOBAL_HEIGHT);
+    player_ = new Player(Point(2, 2), map_);
+    entities_.push(player_);    
 }
 
 Engine::~Engine()
 {
-    entities.clearAndDelete();
-    delete map;
+    entities_.clearAndDelete();
+    delete map_;
 }
 
 void Engine::update()
 {
-    for (Entity *e : entities)
+    for (Entity *e : entities_)
     {
         e->update();
     }
@@ -31,7 +31,7 @@ void Engine::render()
 {
     TCODConsole::root->clear();
     map->render();
-    for (Entity *e : entities)
+    for (Entity *e : entities_)
     {
         e->render();
     }

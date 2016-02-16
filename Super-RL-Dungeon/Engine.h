@@ -17,11 +17,11 @@ public:
 
 private:
 
-	Scene scene;
+	Scene scene_;
 
-    TCODList<Entity *> entities;
-    Player *player;
-    GameMap *map;
+    TCODList<Entity *> entities_;
+    Player *player_;
+    GameMap *map_;
 
 };
 
