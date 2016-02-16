@@ -1,11 +1,14 @@
 #include "Engine.h"
 
-Engine::Engine() :
-	scene(Scene(80,50))
-{
-    TCODConsole::initRoot(80, 50, "SUPER-RL-DUNGEON", false);
+const int GLOBAL_WIDTH = 200;
+const int GLOBAL_HEIGHT = 100;
 
-    map = new GameMap(80, 50);
+Engine::Engine() :
+	scene(Scene(GLOBAL_WIDTH, GLOBAL_HEIGHT))
+{
+    TCODConsole::initRoot(GLOBAL_WIDTH, GLOBAL_HEIGHT, "SUPER-RL-DUNGEON", false);
+
+    map = new GameMap(GLOBAL_WIDTH, GLOBAL_HEIGHT);
     player = new Player(Point(2, 2), map);
     entities.push(player);    
 }

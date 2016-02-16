@@ -6,7 +6,14 @@ struct GameTile
 {
 	bool passable;
 	char image;
-	GameTile() : passable(true), image('.') {}	
+	TCODColor fg_color;
+	TCODColor bg_color;
+	GameTile() : 
+		passable(true), 
+		image('.'), 
+		bg_color(TCODColor::grey),
+		fg_color(TCODColor::white)
+	{}	
 };
 
 class GameMap

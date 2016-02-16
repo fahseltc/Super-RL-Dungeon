@@ -46,8 +46,10 @@ void GameMap::render()
     {
         for (int y = 0; y < height; y++)
         {
-            TCODConsole::root->setChar(x, y, tiles[x + y * width].image);
-            TCODConsole::root->setCharBackground(x, y, TCODColor::grey);
+			GameTile tile = tiles[x + y * width];
+            TCODConsole::root->setChar(x, y, tile.image);
+            TCODConsole::root->setCharBackground(x, y, tile.bg_color);
+			TCODConsole::root->setCharForeground(x, y, tile.fg_color);
         }
     }
 }
@@ -70,11 +72,11 @@ void GameMap::set_noise()
 			float result = generator->get(p);
 			result += 1;
 			// result is from 0-2
-			if (result > 1.5f)
+			if (result > 1.2f)
 			{ // mountain?
 				tiles[x + y * width].image = 'M';
 			}
-			else if (result > 1.0)
+			else if (result > 0.7)
 			{ // rocky?
 				tiles[x + y * width].image = '*';
 			}
