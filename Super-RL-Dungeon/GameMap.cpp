@@ -75,18 +75,25 @@ void GameMap::set_noise()
 			if (result > 1.2f)
 			{ // mountain?
 				tiles[x + y * width].image = 'M';
+				tiles[x + y * width].bg_color = TCODColor::darkerRed;
 			}
-			else if (result > 0.7)
+			else if (result > 0.8)
 			{ // rocky?
 				tiles[x + y * width].image = '*';
+				//tiles[x + y * width].fg_color = TCODColor::blue;
+				tiles[x + y * width].bg_color = TCODColor::lighterGreen;
 			}
-			else if (result > 0.5f)
+			else if (result > 0.7)
 			{ // flat?
 				tiles[x + y * width].image = '_';
+				tiles[x + y * width].fg_color = TCODColor::blue;
+				tiles[x + y * width].bg_color = TCODColor::darkYellow;
 			}
 			else
 			{
 				tiles[x + y * width].image = '.';
+				tiles[x + y * width].fg_color = TCODColor::blue;
+				tiles[x + y * width].bg_color = TCODColor::blue;
 			}
 		}
 	}
