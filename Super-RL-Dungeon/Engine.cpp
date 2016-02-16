@@ -1,38 +1,24 @@
 #include "engine.h"
 
-const int GLOBAL_WIDTH = 200;
-const int GLOBAL_HEIGHT = 100;
+const int kGlobalWidth = 200;
+const int kGlobalHeight = 100;
 
 Engine::Engine() :
-	scene_(Scene(GLOBAL_WIDTH, GLOBAL_HEIGHT))
+	scene_(Scene(kGlobalWidth, kGlobalHeight))
 {
-    TCODConsole::initRoot(GLOBAL_WIDTH, GLOBAL_HEIGHT, "SUPER-RL-DUNGEON", false);
-
-    map_ = new GameMap(GLOBAL_WIDTH, GLOBAL_HEIGHT);
-    player_ = new Player(Point(2, 2), map_);
-    entities_.push(player_);    
+    TCODConsole::initRoot(kGlobalWidth, kGlobalHeight, "SUPER-RL-DUNGEON", false); 
 }
 
 Engine::~Engine()
 {
-    entities_.clearAndDelete();
-    delete map_;
 }
 
-void Engine::update()
+void Engine::Update()
 {
-    for (Entity *e : entities_)
-    {
-        e->update();
-    }
+	scene_.Update();
 }
 
-void Engine::render()
+void Engine::Render()
 {
-    TCODConsole::root->clear();
-    map->render();
-    for (Entity *e : entities_)
-    {
-        e->render();
-    }
+	scene_.Render();
 }

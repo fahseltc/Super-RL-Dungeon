@@ -39,7 +39,7 @@ GameMap::~GameMap()
     delete tiles_;
 }
 
-void GameMap::render()
+void GameMap::Render()
 {
     for (int x = 0; x < width_; x++)
     {
@@ -53,10 +53,7 @@ void GameMap::render()
     }
 }
 
-bool GameMap::is_passable(int x, int y)
-{
-    return tiles_[x + y*width_].passable;
-}
+bool GameMap::is_passable(int x, int y) { return tiles_[x + y*width_].passable; }
 
 void GameMap::set_noise()
 {

@@ -12,17 +12,11 @@ public:
     Engine();
     ~Engine();
     
-    void update();
-    void render();
+    void Update();
+    void Render();
 
 private:
-
 	Scene scene_;
-
-    TCODList<Entity *> entities_;
-    Player *player_;
-    GameMap *map_;
-
 };
 
 extern Engine engine;

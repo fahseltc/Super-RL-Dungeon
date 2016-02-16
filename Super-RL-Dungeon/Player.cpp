@@ -9,12 +9,12 @@ Player::Player(Point p, GameMap *map_in) :
     map_ = map_in;
 }
 
-void Player::update()
+void Player::Update()
 {
-	handle_input();
+	HandleInput();
 }
 
-void Player::handle_input()
+void Player::HandleInput()
 {
 	TCOD_key_t key;
 	TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
@@ -38,7 +38,7 @@ void Player::handle_input()
     }
 }
 
-void Player::render()
+void Player::Render()
 {
 	TCODConsole::root->putChar(position_.x, position_.y, icon_);
     TCODConsole::root->setCharForeground(position_.x, position_.y, TCODColor::yellow);

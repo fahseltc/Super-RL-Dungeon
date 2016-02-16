@@ -8,7 +8,7 @@ Scene::Scene(int w, int h)
 
 	// need data structure that stores the position and pointer of each entity on the map
 	std::vector< std::vector<Entity> > position_entity_map(w, std::vector<Entity>(h));
-	position_entity_map[player_->m_position.x][player->m_position.y] = *player;
+	position_entity_map[player_->position_.x][player_->position_.y] = *player_;
 }
 
 Scene::~Scene()
@@ -17,39 +17,39 @@ Scene::~Scene()
 	delete map_;
 }
 
-void Scene::update()
+void Scene::Update()
 {
 	for (Entity *e : entities_)
 	{
 		// need to update position_entity_map in here.
 		// Maybe find the entity, then update it, then afterwards update the map.
-		e->update();
+		e->Update();
 	}
 }
 
-void Scene::render()
+void Scene::Render()
 {
 	TCODConsole::root->clear();
-	map_->render();
+	map_->Render();
 	for (Entity *e : entities_)
 	{
-		e->render();
+		e->Render();
 	}
 }
 
-void Scene::update_entity(Entity *e, int x, int y)
+void Scene::UpdateEntity(Entity *e, int x, int y)
 {
 	// find entity, either by (x,y) or in the list of entities.
 	// std::find ??
 }
 
-bool Scene::entity_at(int x, int y)
+bool Scene::EntityExistsAt(int x, int y)
 {
 	// todo make this work
 	return true;
 }
 
-Entity* Scene::get_entity(int x, int y)
+Entity* Scene::GetEntity(int x, int y)
 {
 	return position_entity_map_[x][y];
 }

@@ -6,8 +6,8 @@ int main()
 {
     while (!TCODConsole::isWindowClosed())
     {
-        engine.update();
-        engine.render();
+        engine.Update();
+        engine.Render();
         TCODConsole::flush();
     }
     return 0;

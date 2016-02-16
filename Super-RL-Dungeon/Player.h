@@ -9,9 +9,9 @@ public:
 	Player(Point p, GameMap *map_in);
     GameMap *map_;
 
-	void update();
-	void render();
-	void handle_input();
+	void Update();
+	void Render();
+	void HandleInput();
 
 private:
 };

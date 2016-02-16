@@ -10,12 +10,12 @@ public:
 	Scene(int w, int h);
 	~Scene();	
 
-	void update();
-	void render();
+	void Update();
+	void Render();
 
-	void update_entity(Entity*, int x, int y);
-	bool entity_at(int x, int y);
-	Entity* get_entity(int x, int y);
+	void UpdateEntity(Entity*, int x, int y);
+	bool EntityExistsAt(int x, int y);
+	Entity* GetEntity(int x, int y);
 
 private:
 	TCODList<Entity *> entities_;

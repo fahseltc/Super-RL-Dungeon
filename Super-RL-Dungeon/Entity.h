@@ -9,8 +9,8 @@ public:
 	Entity();
 	Entity(Point);
 
-	virtual void update();
-	virtual void render();
+	virtual void Update();
+	virtual void Render();
 
 	void set_icon(char c);
 };

@@ -25,7 +25,7 @@ public:
 	int width_;
 	int height_;
 
-	void render();
+	void Render();
     bool is_passable(int, int);
 
 protected:

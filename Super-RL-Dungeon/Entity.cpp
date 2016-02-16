@@ -10,10 +10,7 @@ Entity::Entity(Point p)
 	position_ = p;
 }
 
-void Entity::update() {};
-void Entity::render() {};
+void Entity::Update() {};
+void Entity::Render() {};
 
-void Entity::set_icon(char c)
-{
-	icon_ = c;
-}
+void Entity::set_icon(char c){ icon_ = c; }
