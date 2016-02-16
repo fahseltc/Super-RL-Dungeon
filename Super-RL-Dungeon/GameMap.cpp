@@ -8,6 +8,8 @@ GameMap::GameMap(int w, int h) :
     // make map, single array
     tiles = new GameTile[width*height];
 
+	set_noise();
+
     for (int i = 0; i < height; i++)
     {
         // left wall
@@ -53,4 +55,36 @@ void GameMap::render()
 bool GameMap::is_passable(int x, int y)
 {
     return tiles[x + y*width].passable;
+}
+
+void GameMap::set_noise()
+{
+	TCODNoise* generator = new TCODNoise(2);
+	generator->setType(TCOD_NOISE_PERLIN);
+	for (int x = 0; x < width; x++)
+	{
+		for (int y = 0; y < height; y++)
+		{			
+			float p[2] = { (float)x, (float)y };
+			float result = generator->get(p);
+			result += 1;
+			// result is from 0-2
+			if (result > 1.5f)
+			{ // mountain?
+				tiles[x + y * width].image = 'M';
+			}
+			else if (result > 1.0)
+			{ // rocky?
+				tiles[x + y * width].image = '*';
+			}
+			else if (result > 0.5f)
+			{ // flat?
+				tiles[x + y * width].image = '_';
+			}
+			else
+			{
+				tiles[x + y * width].image = '.';
+			}
+		}
+	}
 }

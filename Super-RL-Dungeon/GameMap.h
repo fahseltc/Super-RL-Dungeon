@@ -23,4 +23,7 @@ public:
 
 protected:
 	GameTile *tiles;
+
+private:
+	void set_noise();
 };
