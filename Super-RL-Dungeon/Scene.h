@@ -1,7 +1,7 @@
 #pragma once
-#include "Entity.h"
-#include "GameMap.h"
-#include "Player.h"
+#include "entity.h"
+#include "game_map.h"
+#include "player.h"
 #include <vector>
 
 class Scene

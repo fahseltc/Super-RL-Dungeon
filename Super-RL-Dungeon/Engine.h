@@ -1,8 +1,8 @@
 #pragma once
-#include "Entity.h"
+#include "entity.h"
 #include "libtcod.hpp"
-#include "GameMap.h"
-#include "Player.h"
+#include "game_map.h"
+#include "player.h"
 
 #include "Scene.h"
 

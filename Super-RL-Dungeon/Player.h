@@ -1,7 +1,7 @@
 #pragma once
-#include "Entity.h"
-#include "Point.h"
-#include "GameMap.h"
+#include "entity.h"
+#include "point.h"
+#include "game_map.h"
 
 class Player : public Entity
 {

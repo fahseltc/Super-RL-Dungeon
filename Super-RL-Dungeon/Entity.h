@@ -1,5 +1,5 @@
 #pragma once
-#include "Point.h"
+#include "point.h"
 class Entity
 {
 public:

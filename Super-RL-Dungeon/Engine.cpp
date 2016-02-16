@@ -1,4 +1,4 @@
-#include "Engine.h"
+#include "engine.h"
 
 const int GLOBAL_WIDTH = 200;
 const int GLOBAL_HEIGHT = 100;

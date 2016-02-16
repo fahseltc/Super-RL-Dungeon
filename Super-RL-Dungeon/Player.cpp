@@ -1,4 +1,4 @@
-#include "Player.h"
+#include "player.h"
 #include "libtcod.hpp"
 
 Player::Player(Point p, GameMap *map_in) :
