@@ -61,11 +61,12 @@ void GameMap::set_noise()
 {
 	TCODNoise* generator = new TCODNoise(2);
 	generator->setType(TCOD_NOISE_PERLIN);
+	const int div = 10;
 	for (int x = 0; x < width; x++)
 	{
 		for (int y = 0; y < height; y++)
 		{			
-			float p[2] = { (float)x, (float)y };
+			float p[2] = { (float)x/div, (float)y/div };
 			float result = generator->get(p);
 			result += 1;
 			// result is from 0-2
