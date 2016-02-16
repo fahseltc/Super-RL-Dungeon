@@ -19,18 +19,19 @@ struct GameTile
 class GameMap
 {
 public:
-	GameMap(int w, int h);
+	GameMap(int, int);
 	~GameMap();
 
 	int width;
 	int height;
 
 	void render();
-    bool is_passable(int x, int y);
+    bool is_passable(int, int);
 
 protected:
 	GameTile *tiles;
 
 private:
 	void set_noise();
+	void set_colors(int, int, TCODColor, TCODColor);
 };

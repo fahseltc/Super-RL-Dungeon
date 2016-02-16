@@ -64,9 +64,9 @@ void GameMap::set_noise()
 	TCODNoise* generator = new TCODNoise(2);
 	generator->setType(TCOD_NOISE_PERLIN);
 	const int div = 10;
-	for (int x = 0; x < width; x++)
+	for (int x = 1; x < width - 1; x++)
 	{
-		for (int y = 0; y < height; y++)
+		for (int y = 1; y < height - 1; y++)
 		{			
 			float p[2] = { (float)x/div, (float)y/div };
 			float result = generator->get(p);
@@ -74,27 +74,31 @@ void GameMap::set_noise()
 			// result is from 0-2
 			if (result > 1.2f)
 			{ // mountain?
-				tiles[x + y * width].image = 'M';
-				tiles[x + y * width].bg_color = TCODColor::darkerRed;
+				tiles[x + y * width].image = 'M';				
+				set_colors(x, y, TCODColor::black, TCODColor::darkerRed);
 			}
 			else if (result > 0.8)
 			{ // rocky?
 				tiles[x + y * width].image = '*';
-				//tiles[x + y * width].fg_color = TCODColor::blue;
-				tiles[x + y * width].bg_color = TCODColor::lighterGreen;
+				set_colors(x, y, TCODColor::grey, TCODColor::lighterGreen);
 			}
 			else if (result > 0.7)
 			{ // flat?
+
 				tiles[x + y * width].image = '_';
-				tiles[x + y * width].fg_color = TCODColor::blue;
-				tiles[x + y * width].bg_color = TCODColor::darkYellow;
+				set_colors(x, y, TCODColor::blue, TCODColor::darkYellow);
 			}
 			else
 			{
-				tiles[x + y * width].image = '.';
-				tiles[x + y * width].fg_color = TCODColor::blue;
-				tiles[x + y * width].bg_color = TCODColor::blue;
+				set_colors(x, y, TCODColor::blue, TCODColor::blue);
 			}
 		}
 	}
+}
+
+void GameMap::set_colors(int x, int y, TCODColor fg, TCODColor bg)
+{
+	GameTile *tile = &tiles[x + y * width];
+	tile->fg_color = fg;
+	tile->bg_color = bg;
 }
