@@ -6,12 +6,11 @@
 class Player : public Entity
 {
 public:
-	Player(Point p, GameMap *map_in);
+    Player(Point p, GameMap *map_in);
     GameMap *map_;
 
-	void Update();
-	void Render();
-	void HandleInput();
+    void Update();
+    void Render();
 
 private:
 };

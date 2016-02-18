@@ -10,7 +10,7 @@ struct GameTile
 	TCODColor bg_color;
 	GameTile() : 
 		passable(true), 
-		image('.'), 
+		image(' '), 
 		bg_color(TCODColor::grey),
 		fg_color(TCODColor::white)
 	{}	
