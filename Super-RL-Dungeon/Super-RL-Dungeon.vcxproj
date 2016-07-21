@@ -155,6 +155,7 @@
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="game_map.h" />
+    <ClInclude Include="GUI.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="scene.h" />
@@ -163,6 +164,7 @@
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="game_map.cpp" />
+    <ClCompile Include="GUI.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="Super-RL-Dungeon.cpp" />

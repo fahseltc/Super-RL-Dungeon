@@ -21,5 +21,9 @@ void Player::Render()
     TCODConsole::root->setCharForeground(
         position_.x,
         position_.y,
-        TCODColor::black);
+        TCODColor::lightBlue);
+    //TCODConsole::root->setCharBackground(
+    //    position_.x,
+    //    position_.y,
+    //    TCODColor::black);
 }

@@ -28,6 +28,8 @@ public:
 	void Render();
     bool is_passable(int, int);
 
+    TCODConsole *con;
+
 protected:
 	GameTile *tiles_;
 

@@ -1,9 +1,12 @@
 #include "libtcod.hpp"
 #include "game_map.h"
+#include "engine.h"
 
 GameMap::GameMap(int w, int h) : 
     width_(w), height_(h)
 {
+    con = new TCODConsole(w, h);
+
     // make map, single array
     tiles_ = new GameTile[width_*height_];
 
@@ -41,21 +44,27 @@ GameMap::~GameMap()
 
 void GameMap::Render()
 {
+    con->setDefaultBackground(TCODColor::black);
+    con->clear();
+
     for (int x = 0; x < width_; x++)
     {
         for (int y = 0; y < height_; y++)
         {
 			GameTile tile = tiles_[x + y * width_];
-            TCODConsole::root->setChar(x, y, tile.image);
-            TCODConsole::root->setCharBackground(x, y, tile.bg_color);
-			TCODConsole::root->setCharForeground(x, y, tile.fg_color);
+            con->setChar(x, y, tile.image);
+            con->setCharBackground(x, y, tile.bg_color);
+            con->setCharForeground(x, y, tile.fg_color);
         }
     }
+    // blit the GUI console on the root console
+    TCODConsole::blit(con, 0, 0, width_, height_,
+        TCODConsole::root, 0, 3);
 }
 
 bool GameMap::is_passable(int x, int y) 
 { 
-	return tiles_[x + y*width_].passable; 
+	return tiles_[x + (y-3) *width_].passable; 
 }
 
 void GameMap::set_noise()

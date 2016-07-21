@@ -3,9 +3,11 @@
 
 Scene::Scene(int w, int h)
 {
-    map_ = new GameMap(w, h);
-    player_ = new Player(Point(2, 2), map_); // get rid of this map
+    map_ = new GameMap(w, h - 3);
+    gui = new GUI();
+    player_ = new Player(Point(5, 5), map_); // get rid of this map
     entities_.push(player_);
+    entities_.push(new Player(Point(7, 7), map_));
 
     // need data structure that stores the position and pointer of each entity
     // on the map
@@ -16,6 +18,7 @@ Scene::~Scene()
 {
     entities_.clearAndDelete();
     delete map_;
+    delete gui;
 }
 
 void Scene::HandleInput()
@@ -32,9 +35,27 @@ void Scene::HandleInput()
     case TCODK_DOWN: future_y++; break;
     case TCODK_LEFT: future_x--; break;
     case TCODK_RIGHT: future_x++; break;
+    case TCODK_ESCAPE: exit(0);
     }
 
+    if (key.c == 'w') { future_y--; }
+    if (key.c == 's') { future_y++; }
+    if (key.c == 'a') { future_x--; }
+    if (key.c == 'd') { future_x++; }
+
     // check if we can move to future x,y
+    if (future_x == player_->position_.x && future_y == player_->position_.y)
+    {
+        // we arent moving
+        return;
+    }
+
+    if (EntityExistsAt(future_x, future_y))
+    {
+        std::cout << "THERE IS SOMETHING THERE AT: (" << future_x << ", " << future_y << ").\n";
+        return;
+    }
+
     if (map_->is_passable(future_x, future_y))
     {
         player_->position_.x = future_x;
@@ -60,6 +81,7 @@ void Scene::Render()
     {
         e->Render();
     }
+    gui->render();
 }
 
 void Scene::UpdateEntity(Entity *e, int x, int y)
@@ -70,11 +92,21 @@ void Scene::UpdateEntity(Entity *e, int x, int y)
 
 bool Scene::EntityExistsAt(int x, int y)
 {
-    // TODO make this work
-    return true;
+    for (Entity *e : entities_)
+    {
+        if (e->position_.x == x && e->position_.y == y) { return true; }
+    }
+    return false;
 }
 
 Entity* Scene::GetEntity(int x, int y)
 {
-    return player_; // temp
+    if (EntityExistsAt(x, y))
+    {
+        for (Entity *e : entities_)
+        {
+            if (e->position_.x == x && e->position_.y == y) { return e; }
+        }
+    }
+    else { return nullptr; }
 }

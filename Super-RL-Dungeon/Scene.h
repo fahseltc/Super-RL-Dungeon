@@ -4,6 +4,7 @@
 #include "player.h"
 #include <vector>
 #include <unordered_map>
+#include "GUI.h"
 
 // This class holds entities and the game map, and acts as a bridge between the 
 // two of them. This allows us to have a broader look at where the entities 
@@ -35,15 +36,10 @@ private:
     //
     // VARIABLES
     //
-
-    // stores a list of entities to be iterated over
     TCODList<Entity *> entities_;
-
-    // stores the GameMap object which holds terrain information
     GameMap *map_;
-
-    // the player entity
     Player *player_;
+    GUI *gui;
 
 
     //

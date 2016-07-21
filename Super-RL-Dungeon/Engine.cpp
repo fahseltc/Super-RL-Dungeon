@@ -1,14 +1,13 @@
 #include "engine.h"
 
-// Global game width in characters
-const int kGlobalWidth = 200;
 
-// Global game height in characters
-const int kGlobalHeight = 100;
+
+
 
 Engine::Engine() :
     scene_(Scene(kGlobalWidth, kGlobalHeight))
 {
+    TCODConsole::setCustomFont("bigtiles.bmp");
     TCODConsole::initRoot(
         kGlobalWidth, 
         kGlobalHeight, 

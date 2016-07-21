@@ -9,6 +9,13 @@
 class Engine
 {
 public:
+
+    // Global game width in characters
+    static const int kGlobalWidth = 50;
+
+    // Global game height in characters
+    static const int kGlobalHeight = 20;
+
     Engine();
     ~Engine();
     
