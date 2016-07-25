@@ -18,7 +18,7 @@ public:
 
     Engine();
     ~Engine();
-    
+
     void Update();
     void Render();
 
