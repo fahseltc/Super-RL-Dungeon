@@ -15,7 +15,7 @@ class Scene
 {
 public:
     Scene(int w, int h);
-    ~Scene();	
+    ~Scene();    
 
     // Iterates over the entity list and updates everything
     void Update();

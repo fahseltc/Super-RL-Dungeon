@@ -2,12 +2,12 @@
 
 Entity::Entity()
 {
-	position_ = Point();
+    position_ = Point();
 }
 
 Entity::Entity(Point p)
 {
-	position_ = p;
+    position_ = p;
 }
 
 void Entity::Update() {};

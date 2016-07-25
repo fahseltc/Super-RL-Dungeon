@@ -3,14 +3,14 @@
 class Entity
 {
 public:
-	Point position_;
-	char icon_;
-	
-	Entity();
-	Entity(Point);
+    Point position_;
+    char icon_;
+    
+    Entity();
+    Entity(Point);
 
-	virtual void Update();
-	virtual void Render();
+    virtual void Update();
+    virtual void Render();
 
-	void set_icon(char c);
+    void set_icon(char c);
 };

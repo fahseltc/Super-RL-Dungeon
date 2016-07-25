@@ -23,7 +23,7 @@ public:
     void Render();
 
 private:
-	Scene scene_;
+    Scene scene_;
 };
 
 extern Engine engine;
